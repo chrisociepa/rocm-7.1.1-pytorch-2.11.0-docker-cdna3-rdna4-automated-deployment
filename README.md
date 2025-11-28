@@ -181,6 +181,9 @@ Use the container image you need.
 # RDNA4 build
 sudo docker pull rocm/vllm-dev:open-r9700-08052025
 ```
+
+<img width="889" height="454" alt="{FBAB566B-C7C3-4F5F-955A-9ED5AB22EA69}" src="https://github.com/user-attachments/assets/f4983299-08e9-455b-a7bb-960ed240a276" />
+
 or
 ```bash
 # CDNA3 build
