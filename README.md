@@ -201,14 +201,15 @@ Using the `-a` flag runs **all available tests**, including:
 
 Run the P2P test
 ```bash
-sudo /opt/rocm/bin/rocm-bandwidth-test -a
+sudo /opt/rocm/bin/rocm_bandwidth_test plugin --run tb p2p
+
 ```
 
 ### Output
 
 The tool prints results in a **matrix format** showing bandwidth (GB/s) between every device pair.
 
-<img width="646" height="663" alt="{51926F23-C527-4447-89E4-69A64A4CB02C}" src="https://github.com/user-attachments/assets/1799223f-a123-41e9-9f87-d4ddf5f9266a" />
+<img width="983" height="1179" alt="{6EAC522F-550D-4881-9C78-11B3A90A555D}" src="https://github.com/user-attachments/assets/039f0f87-79b8-4dd0-856b-d959025b27a4" />
 
 ⚠️ **Caution:**  
 Make sure **"Resize BAR"** is enabled in the **SBIOS**.  
