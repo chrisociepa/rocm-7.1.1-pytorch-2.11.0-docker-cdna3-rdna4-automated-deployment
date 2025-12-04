@@ -196,7 +196,7 @@ install_noble() {
     sudo DEBIAN_FRONTEND=noninteractive apt install git-lfs --yes
 
     # Install with "default" settings (no interaction)
-    sudo DEBIAN_FRONTEND=noninteractive apt install -y ./amdgpu-install_7.1.1.70101-1_all.deb --allow-downgrades
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ./amdgpu-install_7.1.1.70101-1_all.deb --allow-downgrades
 
     # Installing multiple use cases including ROCm 7.1.1, OCL and HIP SDK
 
