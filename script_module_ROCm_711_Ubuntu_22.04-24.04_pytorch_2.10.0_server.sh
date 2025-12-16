@@ -47,7 +47,7 @@
 # ---------------------------------------------------------------------------------------------------------------
 # Author:                Joerg Roskowetz
 # Estimated Runtime:     ~15 minutes (depending on system performance and internet speed)
-# Last Updated:          November 28th, 2025
+# Last Updated:          December 12th, 2025
 # ================================================================================================================
 
 # global stdout method
@@ -370,6 +370,7 @@ printf "  • rocminfo\n"
 printf "  • clinfo\n"
 printf "  • rocm-smi\n"
 printf "  • amd-smi\n"
+printf "  • rocm-bandwidth-tool\n"
 
 # PyTorch verification
 printf "\nVerify the active PyTorch device:\n"
@@ -377,15 +378,15 @@ printf "  python3 test.py\n"
 
 # vLLM Docker images for RDNA4 and CDNA3
 printf "\nInstall the latest vLLM Docker images:\n"
-printf "  RDNA4 → sudo docker pull rocm/vllm-dev:open-r9700-08052025\n"
+printf "  RDNA4 → sudo docker pull rocm/vllm-dev:rocm7.1.1_navi_ubuntu24.04_py3.12_pytorch_2.8_vllm_0.10.2rc1\n"
 printf "  CDNA3 → sudo docker pull rocm/vllm:latest\n"
 
 # Run the Docker container
 printf "\nStart the vLLM Docker container:\n"
 printf "  sudo docker run -it --device=/dev/kfd --device=/dev/dri \\
-    --security-opt seccomp=unconfined --group-add video rocm/vllm\n"
+    --security-opt seccomp=unconfined --group-add video rocm/vllm-dev:rocm7.1.1_navi_ubuntu24.04_py3.12_pytorch_2.8_vllm_0.10.2rc1\n"
 
-printf "\nThe container will run using the image 'rocm/vllm', with flags enabling AMD GPU access via ROCm.\n\n"
+printf "\nThe container will run using the image 'rocm/vllm-dev:rocm7.1.1_navi_ubuntu24.04_py3.12_pytorch_2.8_vllm_0.10.2rc1', with flags enabling AMD GPU access via ROCm.\n\n"
 
 # reboot option
 print 'Reboot system now (recommended)? (y/n)'
