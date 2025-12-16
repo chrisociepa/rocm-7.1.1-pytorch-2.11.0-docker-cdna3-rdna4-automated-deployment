@@ -179,7 +179,7 @@ sudo docker run -it \
 ```
 GPU2 has been added to the container
 
-<img width="933" height="305" alt="{988A3311-56B1-4BDB-95A6-DF00A4D2BE6D}" src="https://github.com/user-attachments/assets/b630ad80-b163-453a-be29-b03c346aae8b" />
+<img width="1036" height="383" alt="{DDB60941-260E-4E11-B6C8-A00772A25C5E}" src="https://github.com/user-attachments/assets/04feef9e-7191-4658-b9f4-9a72323d4d8c" />
 
 ## 📶 ROCm Bandwidth Test
 
