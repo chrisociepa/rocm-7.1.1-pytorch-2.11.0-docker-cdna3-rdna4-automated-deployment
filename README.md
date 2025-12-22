@@ -6,12 +6,15 @@
 [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04%20%7C%2024.04-e95420?logo=ubuntu)](https://ubuntu.com)
 
 ## 📌 Overview
-This repository provides an **automated installation script** for setting up a complete **AMD ROCm 7.1.1** development environment with:
-- **ROCm 7.1.1** GPU drivers + OpenCL 2.x SDK  
-- **PyTorch 2.10.0 (Preview@ROCm7.1)** ROCm build  
-- **Transformers 4.57.3** + **Accelerate + Diffusers + Datasets**  
-- **Docker environment** with AMD GPU support  
-- **Preconfigured GPU test script**
+The script provisions a fully automated, non-interactive AMD GPU software development environment for AI and HPC software engineering on **Ubuntu 22.04** and **24.04**, centered on **ROCm 7.1.1** and PyTorch nightly for **ROCm 7.1**.
+
+At the platform layer, it installs the AMD GPU kernel driver (**amdgpu-dkms**) and the ROCm 7.1.1 runtime, including **HIP** and **OpenCL 2.x**, ensuring compatibility across **CDNA2**, **CDNA3**, **RDNA3**, **RDNA4** GPUs and **Strix APUs**. The script configures **OpenCL ICD** paths, user group permissions (video, render, sudo), and kernel headers required for compiling GPU-accelerated native extensions.
+
+For the AI framework layer, the script installs **PyTorch 2.10.0 nightly** (ROCm 7.1 wheels) directly from the official PyTorch ROCm nightly repository, enabling access to the latest HIP backends, kernel fusion paths, and compiler features. It complements PyTorch with Transformers, Accelerate, Diffusers, Datasets, SentencePiece, and supporting Python build tooling, allowing immediate development, testing, and profiling of modern LLM, diffusion, and data-parallel workloads.
+
+The developer toolchain is rounded out with C/C++ build and system utilities required for low-level GPU software engineering and extension development, including **cmake**, **libstdc++ dev headers**, **git** / **git-lfs**, **libmsgpack**, and **rocm-bandwidth-test** for validating PCIe and HBM bandwidth. Runtime observability and system inspection are supported via htop, ncdu, and ROCm diagnostics (rocminfo, rocm-smi, amd-smi).
+
+A validation script is generated to verify end-to-end GPU availability, confirming ROCm detection, PyTorch HIP enablement, GPU enumeration, and successful on-device tensor execution.
 
 The setup is fully **non-interactive** and optimized for both **desktop** and **server** deployments. In addition it checks whether ROCm or PyTorch (installed via pip) is already present on the system.
 If an existing ROCm installation is detected, it removes ROCm and related packages to ensure a clean environment. It also **detects** and **uninstalls** any PyTorch packages (including ROCm-specific builds) to prevent version conflicts before proceeding with a fresh installation.
