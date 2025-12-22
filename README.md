@@ -125,7 +125,7 @@ Check Docker Installation
 ```bash
 docker --version
 ```
-<img width="896" height="62" alt="{A01686FA-B579-4D64-91BB-147D5A2563F3}" src="https://github.com/user-attachments/assets/3f24a8c1-7a1d-435f-94a4-de8a9b9d3fb4" />
+<img width="675" height="60" alt="{E6E5A827-3283-4DE3-B6B1-7F3EC8A2EAA6}" src="https://github.com/user-attachments/assets/24bf159f-5e91-41f9-8b79-7d0912770d07" />
 
 ### 🤖 vLLM Docker Images
 
