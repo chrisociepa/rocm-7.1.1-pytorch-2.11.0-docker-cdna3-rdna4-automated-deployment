@@ -117,72 +117,6 @@ apt show rocm-libs -a
 
 <img width="898" height="527" alt="{8CE38CD7-EA93-44A4-8778-C1EE06F19243}" src="https://github.com/user-attachments/assets/5396ce18-93d4-40cf-9025-173d8c04d4fe" />
 
-## 🐋 Docker Integration
-
-The script sets up a Docker environment with GPU passthrough support via ROCm.
-
-Check Docker Installation
-```bash
-docker --version
-```
-<img width="675" height="60" alt="{E6E5A827-3283-4DE3-B6B1-7F3EC8A2EAA6}" src="https://github.com/user-attachments/assets/24bf159f-5e91-41f9-8b79-7d0912770d07" />
-
-### 🤖 vLLM Docker Images
-
-To use vLLM optimized for RDNA4 and CDNA3:
-Use the container image you need.
-```bash
-# RDNA4 build for Ubuntu 24.04.x (~13.6GB)
-sudo docker pull rocm/vllm-dev:rocm7.1.1_navi_ubuntu24.04_py3.12_pytorch_2.8_vllm_0.10.2rc1
-```
-
-<img width="987" height="612" alt="{5F35B378-5D25-40DA-A371-5CB1EBD7B5BE}" src="https://github.com/user-attachments/assets/23daf947-9a03-4709-a1cd-416987c34047" />
-
-Further vLLM Docker versions for RDNA 4 can be verified on Docker Hub:  
-https://hub.docker.com/r/rocm/vllm-dev/tags?name=navi
-
-or
-```bash
-# CDNA3 build
-sudo docker pull rocm/vllm:latest
-```
-
-Run vLLM with all available AMD GPU Access (example for RDNA4)
-```bash
-sudo docker run -it \
-    --device=/dev/kfd \
-    --device=/dev/dri \
-    --security-opt seccomp=unconfined \
-    --group-add video \
-    rocm/vllm-dev:rocm7.1.1_navi_ubuntu24.04_py3.12_pytorch_2.8_vllm_0.10.2rc1
-```
-With `rocm-smi`, you can verify all available GPUs (in this case, 2× Radeon AI PRO R9700 GPUs).
-
-<img width="1042" height="273" alt="{F27CCEEE-9D11-441D-889F-5EAB77E0788A}" src="https://github.com/user-attachments/assets/61bb00ec-608a-4dd5-bbd5-5938eff259af" />
-
-or `amd-smi`
-
-<img width="804" height="401" alt="{F2FE5F1A-871E-4A40-A730-CA2F8D514078}" src="https://github.com/user-attachments/assets/1e781e2d-643a-4e89-a63d-5e74e1a26534" />
-
-If you need to add a specific GPU, you can use the **passthrough** option.  
-First, verify the available GPUs in the `/dev/dri` directory.
-
-<img width="871" height="77" alt="{5CE24323-6294-4E65-9B0F-553A87AED057}" src="https://github.com/user-attachments/assets/30aff011-0a88-442c-a8a4-3e2d7633ba3e" />
-
-Let's choose **GPU2**, also referred to as **"card2"** or **"renderD129"**.
-```bash
-sudo docker run -it \
-    --device=/dev/kfd \
-    --device=/dev/dri/card2 \
-    --device=/dev/dri/renderD129 \
-    --security-opt seccomp=unconfined \
-    --group-add video \
-    rocm/vllm-dev:rocm7.1.1_navi_ubuntu24.04_py3.12_pytorch_2.8_vllm_0.10.2rc1
-```
-GPU2 has been added to the container
-
-<img width="1036" height="383" alt="{DDB60941-260E-4E11-B6C8-A00772A25C5E}" src="https://github.com/user-attachments/assets/04feef9e-7191-4658-b9f4-9a72323d4d8c" />
-
 ## 📶 ROCm Bandwidth Test
 
 **AMD’s ROCm Bandwidth Test utility** with the **`tb p2p` (Peer-to-peer device memory bandwidth test)** flag runs a complete set of bandwidth diagnostics.
@@ -249,3 +183,68 @@ sudo /opt/rocm/bin/rocm_bandwidth_test plugin --run tb
 
 <img width="1016" height="761" alt="{3C54C3DA-8B82-483C-AEA5-D0A511508780}" src="https://github.com/user-attachments/assets/60536e2b-e59f-4486-a1fc-ab3ff33a3cd8" />
 
+## 🐋 Docker Integration
+
+The script sets up a Docker environment with GPU passthrough support via ROCm.
+
+Check Docker Installation
+```bash
+docker --version
+```
+<img width="675" height="60" alt="{E6E5A827-3283-4DE3-B6B1-7F3EC8A2EAA6}" src="https://github.com/user-attachments/assets/24bf159f-5e91-41f9-8b79-7d0912770d07" />
+
+### 🤖 vLLM Docker Images
+
+To use vLLM optimized for RDNA4 and CDNA3:
+Use the container image you need.
+```bash
+# RDNA4 build for Ubuntu 24.04.x (~13.6GB)
+sudo docker pull rocm/vllm-dev:rocm7.1.1_navi_ubuntu24.04_py3.12_pytorch_2.8_vllm_0.10.2rc1
+```
+
+<img width="987" height="612" alt="{5F35B378-5D25-40DA-A371-5CB1EBD7B5BE}" src="https://github.com/user-attachments/assets/23daf947-9a03-4709-a1cd-416987c34047" />
+
+Further vLLM Docker versions for RDNA 4 can be verified on Docker Hub:  
+https://hub.docker.com/r/rocm/vllm-dev/tags?name=navi
+
+or
+```bash
+# CDNA3 build
+sudo docker pull rocm/vllm:latest
+```
+
+Run vLLM with all available AMD GPU Access (example for RDNA4)
+```bash
+sudo docker run -it \
+    --device=/dev/kfd \
+    --device=/dev/dri \
+    --security-opt seccomp=unconfined \
+    --group-add video \
+    rocm/vllm-dev:rocm7.1.1_navi_ubuntu24.04_py3.12_pytorch_2.8_vllm_0.10.2rc1
+```
+With `rocm-smi`, you can verify all available GPUs (in this case, 2× Radeon AI PRO R9700 GPUs).
+
+<img width="1042" height="273" alt="{F27CCEEE-9D11-441D-889F-5EAB77E0788A}" src="https://github.com/user-attachments/assets/61bb00ec-608a-4dd5-bbd5-5938eff259af" />
+
+or `amd-smi`
+
+<img width="804" height="401" alt="{F2FE5F1A-871E-4A40-A730-CA2F8D514078}" src="https://github.com/user-attachments/assets/1e781e2d-643a-4e89-a63d-5e74e1a26534" />
+
+If you need to add a specific GPU, you can use the **passthrough** option.  
+First, verify the available GPUs in the `/dev/dri` directory.
+
+<img width="871" height="77" alt="{5CE24323-6294-4E65-9B0F-553A87AED057}" src="https://github.com/user-attachments/assets/30aff011-0a88-442c-a8a4-3e2d7633ba3e" />
+
+Let's choose **GPU2**, also referred to as **"card2"** or **"renderD129"**.
+```bash
+sudo docker run -it \
+    --device=/dev/kfd \
+    --device=/dev/dri/card2 \
+    --device=/dev/dri/renderD129 \
+    --security-opt seccomp=unconfined \
+    --group-add video \
+    rocm/vllm-dev:rocm7.1.1_navi_ubuntu24.04_py3.12_pytorch_2.8_vllm_0.10.2rc1
+```
+GPU2 has been added to the container
+
+<img width="1036" height="383" alt="{DDB60941-260E-4E11-B6C8-A00772A25C5E}" src="https://github.com/user-attachments/assets/04feef9e-7191-4658-b9f4-9a72323d4d8c" />
