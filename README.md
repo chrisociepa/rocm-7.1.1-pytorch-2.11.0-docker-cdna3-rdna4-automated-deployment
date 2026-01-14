@@ -117,7 +117,7 @@ apt show rocm-libs -a
 
 <img width="898" height="527" alt="{8CE38CD7-EA93-44A4-8778-C1EE06F19243}" src="https://github.com/user-attachments/assets/5396ce18-93d4-40cf-9025-173d8c04d4fe" />
 
-## 📶 Setting the right Power Management with `rocm-smi`
+## ⏻ Setting the right Power Management with `rocm-smi`
 
 ROCm provides basic power and performance management controls via `rocm-smi`.  
 For RDNA and CDNA, predefined performance profiles can be used to balance power efficiency and maximum performance.
@@ -127,6 +127,19 @@ Using the following command:
 ```bash
 rocm-smi --showprofile
 ```
+
+The star (*) marks the current profile which is set to **BOOTUP DEFAULT**
+<img width="893" height="439" alt="{795FA7F8-D282-49C4-BD05-EBABEAF7274C}" src="https://github.com/user-attachments/assets/870628c2-cd82-4866-b958-d954a804fedf" />
+
+Set the GPU to the high-performance / compute-optimized power profile.
+This profile prioritizes sustained clocks and higher power limits, making it well suited for AI inference, training, and other compute-intensive workloads.
+It may increase power consumption but helps ensure consistent performance under load.
+
+```bash
+rocm-smi --setprofile 4
+```
+
+<img width="857" height="261" alt="{5617ED67-EC2F-4127-85C3-AA1E0302FD67}" src="https://github.com/user-attachments/assets/ee3b653d-36ed-456c-a596-68b136b3167b" />
 
 ## 📶 ROCm Bandwidth Test
 
