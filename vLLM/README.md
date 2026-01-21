@@ -31,7 +31,7 @@ python3 vLLMbench.py
 ```
 With required hf token
 ```python
-python3 bench.py \
+python3 vLLMbench.py \
   --hf-token hf_xxxx
 ```
 **⚠️ Note**: verify if a hf token to access the model will be required. Some models aslo require to accept license notice.
