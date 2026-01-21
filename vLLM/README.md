@@ -47,4 +47,5 @@ Bielik 1.5B v3 (3.2 GB)
 Bielik 4.5B v3 (9.1 GB)
 <img width="1216" height="597" alt="{CCF149C8-015D-4F55-B924-7E7B3551DE17}" src="https://github.com/user-attachments/assets/ff52eb61-c0fe-4706-99d0-b01133e401b5" />
 Bielik 11B v3 (20.9 GB)
-<img width="1218" height="489" alt="{A8102472-3AF0-4B8F-8390-87AB4DBD2706}" src="https://github.com/user-attachments/assets/16a5a829-cf5e-49be-939a-9aef46adda11" />
+<img width="1216" height="698" alt="{DA311C88-6888-49AC-868C-AB2834F89D07}" src="https://github.com/user-attachments/assets/f5872752-b8ea-4990-9c0e-53c097debb72" />
+
