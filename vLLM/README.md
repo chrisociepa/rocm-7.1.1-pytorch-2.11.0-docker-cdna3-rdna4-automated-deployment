@@ -42,7 +42,9 @@ python3 vLLMbench.py \
 **⚠️ Note**: verify if a hf token to access the model will be required. Some models aslo require to accept license notice.
 <img width="894" height="215" alt="{2E07A558-C14D-49E9-8B34-6BAC7FBB26B8}" src="https://github.com/user-attachments/assets/4d78ef93-22f3-4af8-a670-fdfaaec6bf01" />
 
-Bielik 1.5B v3
+Bielik 1.5B v3 (3.2 GB)
 <img width="1215" height="594" alt="{510BFB37-9DF7-4884-A238-7C37C6409695}" src="https://github.com/user-attachments/assets/fb5bcf41-7569-4f9f-9eb2-253f2ebfe4f2" />
-Bielik 4.5B v3
+Bielik 4.5B v3 (9.1 GB)
 <img width="1216" height="597" alt="{CCF149C8-015D-4F55-B924-7E7B3551DE17}" src="https://github.com/user-attachments/assets/ff52eb61-c0fe-4706-99d0-b01133e401b5" />
+Bielik 11B v3 (20.9 GB)
+<img width="1218" height="489" alt="{A8102472-3AF0-4B8F-8390-87AB4DBD2706}" src="https://github.com/user-attachments/assets/16a5a829-cf5e-49be-939a-9aef46adda11" />
