@@ -23,6 +23,11 @@ wget https://raw.githubusercontent.com/JoergR75/rocm-7.1.1-pytorch-2.11.0-docker
 ```
 <img width="1216" height="276" alt="{DA9A9447-CA91-4CE5-8095-B545AA24E564}" src="https://github.com/user-attachments/assets/9f960a0a-4415-428f-b308-9534df12e867" />
 
+Install tabulate
+```bash
+pip3 install tabulate
+```
+
 ### 3️⃣ **Run the Benchmark**
 Without a required hugging face token
 ```python
