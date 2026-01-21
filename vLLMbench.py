@@ -1,5 +1,9 @@
-# This Python script benchmarks the performance of large language models (LLMs) using vLLM on AMD ROCm-compatible GPUs.
-# It measures throughput, latency, and time-to-first-token (TTFT) for different concurrency levels when generating text from a given prompt
+# ---------------------------------------------------------------------------------------------------------------
+# This Python script benchmarks the performance of large language models (LLMs) using vLLM on AMD ROCm-compatible
+# GPUs.
+# It measures throughput, latency, and time-to-first-token (TTFT) for different concurrency levels when
+# generating text from a given prompt
+# ---------------------------------------------------------------------------------------------------------------
 # Key features:
 #  - Loads a specified LLM (e.g., speakleash/Bielik-11B-v3-Base-20250730)
 #  - Sends asynchronous text generation requests using AsyncLLMEngine
@@ -8,6 +12,11 @@
 #  - Outputs a formatted table showing generation throughput, prompt throughput, min/max TTFT, and success rate
 #  - Displays GPU and PyTorch/ROCm environment details
 #  - Supports Hugging Face authentication via a token
+# ---------------------------------------------------------------------------------------------------------------
+# Author:                Joerg Roskowetz
+# Estimated Runtime:     ~1-2 minutes (depending on model)
+# Last Updated:          January 21st, 2026
+# ================================================================================================================
 
 import asyncio
 import argparse
