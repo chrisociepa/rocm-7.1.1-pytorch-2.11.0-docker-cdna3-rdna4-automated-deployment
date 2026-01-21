@@ -39,7 +39,6 @@ CONCURRENCY_LEVELS = [1, 2, 4, 8, 16, 32]
 GENERATE_TOKENS = 200
 PROMPT_TOKENS = 128
 
-
 def parse_args():
     parser = argparse.ArgumentParser(description="vLLM benchmark")
     parser.add_argument(
@@ -49,7 +48,6 @@ def parse_args():
         help="Hugging Face access token"
     )
     return parser.parse_args()
-
 
 async def run_request(engine, request_id: int):
     start = time.time()
@@ -75,8 +73,12 @@ async def run_request(engine, request_id: int):
         "ttft": first_token_time - start if first_token_time else None,
     }
 
-
 async def benchmark():
+    # Clear GPU memory
+    torch.cuda.empty_cache()
+    for i in range(torch.cuda.device_count()):
+        torch.cuda.reset_peak_memory_stats(i)
+
     engine_args = AsyncEngineArgs(
         model=MODEL_NAME,
         dtype="float16",
@@ -133,7 +135,6 @@ async def benchmark():
     print("GPU Name:", torch.cuda.get_device_name(0) if torch.cuda.device_count() > 0 else "No GPU detected")
     print("GPU VRAM:", torch.cuda.get_device_properties(0).total_memory / 1e9, "GB")
     print("\n" + tabulate(table, headers=headers, tablefmt="github"), "\n")
-
 
 if __name__ == "__main__":
     args = parse_args()
